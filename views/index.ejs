@@ -1,0 +1,22 @@
+<%- include("partials/header") %>
+
+<section class="rating-summary">
+  <h3>Average Rating</h3>
+  <p class="avg-rating"><%= avgRating %> ⭐</p>
+</section>
+
+<section class="reviews">
+  <% if (reviews.length === 0) { %>
+    <p>No reviews yet.</p>
+  <% } %>
+
+  <% reviews.forEach(review => { %>
+    <div class="review-card">
+      <h4><%= review.name %></h4>
+      <p><%= review.comment %></p>
+      <span>Rating: <%= review.rating %> ⭐</span>
+    </div>
+  <% }) %>
+</section>
+
+<%- include("partials/footer") %>
