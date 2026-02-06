@@ -1,0 +1,38 @@
+<%- include("../partials/header") %>
+
+<h3>Admin Dashboard</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Comment</th>
+      <th>Rating</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% reviews.forEach(r => { %>
+      <tr>
+        <td><%= r.name %></td>
+        <td><%= r.comment %></td>
+        <td><%= r.rating %> ⭐</td>
+        <td><%= r.approved ? "Approved" : "Pending" %></td>
+        <td>
+          <% if (!r.approved) { %>
+            <form method="POST" action="/admin/approve/<%= r._id %>" class="inline">
+              <button class="approve">Approve</button>
+            </form>
+          <% } %>
+          <form method="POST" action="/admin/delete/<%= r._id %>" class="inline">
+            <button class="delete">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include("../partials/footer") %>
