@@ -1,0 +1,22 @@
+<%- include("partials/header") %>
+
+<h3>Submit Your Review</h3>
+
+<form method="POST" class="review-form">
+  <input type="text" name="name" placeholder="Your Name" required />
+
+  <textarea name="comment" placeholder="Your Feedback" required></textarea>
+
+  <label>Rating</label>
+  <select name="rating" required>
+    <option value="1">1 ⭐</option>
+    <option value="2">2 ⭐⭐</option>
+    <option value="3">3 ⭐⭐⭐</option>
+    <option value="4">4 ⭐⭐⭐⭐</option>
+    <option value="5">5 ⭐⭐⭐⭐⭐</option>
+  </select>
+
+  <button type="submit">Submit</button>
+</form>
+
+<%- include("partials/footer") %>
